@@ -1,0 +1,29 @@
+<header class="navbar">
+    <nav role="navigation">
+        <ul>
+
+            <li class="navbar__item">
+                <a class="navbar__link {{#if activePage.home}}navbar__link--active{{/if}}" href="/">Home</a>
+            </li>
+            {{#if loggedIn}}
+            <li class="navbar__item">
+                <a class="navbar__link {{#if activePage.profile}}navbar__link--active{{/if}}" href="/profile">{{username}}</a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link {{#if activePage.add}}navbar__link--active{{/if}}" href="/add">Add Photo</a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link {{#if activePage.logout}}navbar__link--active{{/if}}" href="/logout">Logout</a>
+            </li>
+            {{else}}
+
+            <li class="navbar__item">
+                <a class="navbar__link {{#if activePage.register}}navbar__link--active{{/if}}" href="/register">Register</a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link {{#if activePage.login}}navbar__link--active{{/if}}" href="/login">Login</a>
+            </li>
+            {{/if}}
+        </ul>
+    </nav>
+</header>

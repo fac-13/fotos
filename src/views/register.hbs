@@ -1,0 +1,19 @@
+<section>
+    <form name="register" autocomplete="off" action="/register" method="POST">
+        <h1>Sign up</h1>
+        <label class="form__label" for="username">Username:
+            <input class="form__input" id="username" type="text" name="email" placeholder="Enter your email here" required/>
+        </label>
+        <label class="form__label" for="password">Password:
+            <input class="form__input" id="password" type="password" name="password" placeholder="Enter your password" pattern="regex --- "
+                title="Must contain a number" minlength="10" maxlength="32" required/>
+
+        </label>
+        <label class="form__label" for="confirmPassword">Confirm password:
+            <input class="form__input" id="confirmPassword" type="password" name="confirmPassword" placeholder="Enter your password"
+                required/>
+        </label>
+        <p id="val-message">Password must contain 10 characters and at least one number, one capital letter and one special character</p>
+        <button name="submit_button" type="submit">Submit!</button>
+    </form>
+</section>

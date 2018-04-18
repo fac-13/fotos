@@ -1,0 +1,18 @@
+/* FOOTER */
+
+.footer {
+    /* //footer */
+}
+
+.footer__container {
+    /* contains the p element of text */
+}
+
+/* NAV BAR */
+.navbar {
+/* within has navbar__item and navbar__link */
+}
+
+.navbar__link--active {
+    text-decoration: underline;
+}
