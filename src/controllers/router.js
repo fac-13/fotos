@@ -27,7 +27,7 @@ router.get('/photo/:imageID', photo.get);
 // POST METHOD
 
 // For getting the username and password
-router.post('/login', login.get);
+router.post('/login');
 // For getting the photo that has been posted
 router.post('/add');
 
