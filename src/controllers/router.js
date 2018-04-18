@@ -16,7 +16,7 @@ router.get('/login', login.get);
 router.get('/logout', logout.get);
 router.get('/add', add.get);
 router.get('/profile', profile.get);
-router.get('/photo/:imageID', photo.get);
+router.get('/photo/:photoId', photo.get);
 
 router.post('/register', register.get);
 router.post('/login');

@@ -1,8 +1,8 @@
 const queries = require('./../model/database/queries');
 
 exports.get = (req, res, next) => {
-  const { imageID } = req.params;
-  queries.getPhoto(imageID).then(data => {
+  const { photoId } = req.params;
+  queries.getPhoto(photoId).then(data => {
     res.render('photo', { data });
   });
 };
