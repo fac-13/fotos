@@ -1,19 +1,21 @@
 <section>
-    <form name="register" autocomplete="off" action="/register" method="POST">
+    <form novalidate name="register" autocomplete="off" action="/register" method="POST">
         <h1>Sign up</h1>
         <label class="form__label" for="username">Username:
-            <input class="form__input" id="username" type="text" name="email" placeholder="Enter your email here" required/>
+            <input class="form__input" id="regUsername" type="text" name="username" placeholder="Enter your username here" required/>
+        <p id="regUsernameValidation" class="validation_error"></p>
         </label>
         <label class="form__label" for="password">Password:
-            <input class="form__input" id="password" type="password" name="password" placeholder="Enter your password" pattern="regex --- "
-                title="Must contain a number" minlength="10" maxlength="32" required/>
-
+            <input class="form__input" id="regPassword" type="password" name="password" placeholder="Enter your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                minlength="8" maxlength="32" required/>
+        <p id="regPasswordValidation" class="validation_error"></p>
         </label>
         <label class="form__label" for="confirmPassword">Confirm password:
-            <input class="form__input" id="confirmPassword" type="password" name="confirmPassword" placeholder="Enter your password"
+            <input class="form__input" id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm your password"
                 required/>
+         <p id="regPasswordMatch" class="validation_error"></p>
         </label>
-        <p id="val-message">Password must contain 10 characters and at least one number, one capital letter and one special character</p>
-        <button name="submit_button" type="submit">Submit!</button>
+        <p id="regEmptyValidation" class="validation_error"></p>
+        <button id="register_button" name="register_button" type="submit">Submit!</button>
     </form>
 </section>
