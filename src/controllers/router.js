@@ -4,17 +4,6 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 
-// const queries = require('./../model/database/queries');
-// const home = require('./renderHome');
-//
-// router.get('/', (req, res, next) =>
-//   queries
-//     .getAll()
-//     .then(data => res.status(200).json(data))
-//     .then(data => home.get)
-//     .catch(err => next(err))
-// );
-
 const home = require('./home');
 const register = require('./register');
 const login = require('./login');
@@ -22,8 +11,11 @@ const logout = require('./logout');
 const profile = require('./profile');
 const photo = require('./photo');
 const add = require('./add');
-
 const error = require('./error');
+
+// router.get('/', (req, res, next) =>
+//
+// );
 
 // GET METHOD
 router.get('/', home.get);
