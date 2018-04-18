@@ -1,4 +1,4 @@
-const pgp = require ("pg-promise")(); 
+const pgp = require('pg-promise')();
 
 // const herokuDB = {
 //     host: process.env.HEROKU_HOST,
@@ -7,17 +7,18 @@ const pgp = require ("pg-promise")();
 //     database: process.env.HEROKU_DB,
 //     ssl: true,
 //   };
-  
-  const localDB = {
-    host: 'localhost',
-    port: 5432,
-    database: 'fac-express',
-    user: 'super',
-    password: 'password'
-  };
-const connection = localDB; 
-  
+
+const localDB = {
+  host: 'localhost',
+  port: 5432,
+  database: 'photos',
+  user: 'iv',
+  password: 'iv123'
+};
+
+const connection = localDB;
+
 //   const connection = process.env.NODE_ENV === 'production' ? herokuDB : localDB;
-  
-  const db = pgp(connection);
-  module.exports = db;
+
+const db = pgp(connection);
+module.exports = db;

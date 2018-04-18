@@ -11,8 +11,11 @@ const logout = require('./logout');
 const profile = require('./profile');
 const photo = require('./photo');
 const add = require('./add');
-
 const error = require('./error');
+
+// router.get('/', (req, res, next) =>
+//
+// );
 
 // GET METHOD
 router.get('/', home.get);
@@ -33,5 +36,4 @@ router.post('/add');
 
 router.use(error.client);
 router.use(error.server);
-
 module.exports = router;
