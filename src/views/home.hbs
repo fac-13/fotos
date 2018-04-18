@@ -1,0 +1,10 @@
+<section>
+    {{#each data}}
+    <h1>{{this.title}}</h1>
+    <img src={{this.image_url}} alt={{this.title}} />
+    <p>Description: {{this.description}}</p>
+
+    <p>Username posted: {{this.username}}</p>
+    <p>Date posted: {{this.date}}</p>
+    {{/each}}
+</section>
