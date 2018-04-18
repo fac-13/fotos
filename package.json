@@ -1,0 +1,31 @@
+{
+  "name": "fotos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:watch": "nodemon -q src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-13/fotos.git"
+  },
+  "author": "Helen, Guila, Ivi and Jennah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-13/fotos/issues"
+  },
+  "homepage": "https://github.com/fac-13/fotos#readme",
+  "dependencies": {
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3",
+    "supertest": "^3.0.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0"
+  }
+}
