@@ -26,9 +26,15 @@ const postPhoto = (username, title, description, url) => {
   );
 };
 
+const checkUserDetails = (username) => {
+  console.log("Checkuserdetails reached"); 
+  return db.query(`SELECT password FROM users WHERE username = $1`, [username]); 
+}; 
+
 module.exports = {
   getAll,
   getPhoto,
   addUser,
-  postPhoto
+  postPhoto,
+  checkUserDetails
 };
