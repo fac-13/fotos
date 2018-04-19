@@ -17,8 +17,7 @@ exports.get = (req, res) => {
           if (err.message.includes('duplicate key value'))
           {
            console.log("Registration err", err.message)
-           res.cookie('Registration error', 'Username already taken', {maxAge: 10000, secure: true})
-           res.send(); 
+           req.errorCookie.errorMessage = 'Username already taken'; 
           }  
         })  
     }  
