@@ -3,7 +3,7 @@ const url = require('url');
 
 require('env2')('./config.env');
 
-let DB_URL = process.env.DB_URL;
+let USERS_DB_URL = process.env.USERS_DB_URL;
 let localDB = {};
 
 if (process.env.TRAVIS === 'true') {
@@ -12,22 +12,15 @@ if (process.env.TRAVIS === 'true') {
   }
 } else {
   if (process.env.NODE_ENV === 'test') {
-    DB_URL = process.env.TEST_DB_URL;
+    USERS_DB_URL = process.env.TEST_DB_URL;
   }
 
 
-if (!DB_URL) throw new Error('Environment variable DB_URL must be set');
+if (!USERS_DB_URL) throw new Error('Environment variable DB_URL must be set');
 
-  const params = url.parse(DB_URL);
+  const params = url.parse(USERS_DB_URL);
   const [username, password] = params.auth.split(':');
 
-// const herokuDB = {
-//     host: process.env.HEROKU_HOST,
-//     user: process.env.HEROKU_USER,
-//     password: process.env.HEROKU_PW,
-//     database: process.env.HEROKU_DB,
-//     ssl: true,
-//   };
 
  localDB = {
   host: params.hostname,

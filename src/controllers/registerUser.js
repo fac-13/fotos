@@ -9,10 +9,15 @@ exports.get = (req, res) => {
     bcrypt.hash(password, 8, (err, hash) => {
         if (err) {console.log("Bcrypt error", err)}
         else {
-        console.log("Hash", hash); 
-        queries.addUser(username, hash); 
+        // const userDetails = []; 
+        // userDetails.push(username, password)
+        // console.log("userDetails", userDetails); 
+        // queries.addUser(userDetails); 
+        queries
+        .addUser(username, password)
+        .catch(err => console.log("addUser query error:", err))         
         }
-    }); 
+    })
     //after registration redirects the user to their profile
     // res.redirect( `/profile/:${username}`)
 }; 
