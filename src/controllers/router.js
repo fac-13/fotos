@@ -42,8 +42,7 @@ router.get('/logout', logout.get);
 router.get('/add', add.get);
 router.get('/profile/:username', profile.get);
 router.get('/photo/:photoId', photo.get);
-router.post('/add', addPhoto.get);
-router.post('/register', registerUser.get);
+router.post('/add', addPhoto.post);
 router.post('/register', registerUser.post);
 router.post('/login', login.post);
 

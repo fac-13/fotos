@@ -2,7 +2,7 @@ const db = require('./db_connection');
 
 const getAll = () => {
   return db.query(`SELECT users.username, photos.title, photos.date, photos.description, photos.image_url, photos.id FROM photos
-  INNER JOIN users
+  LEFT JOIN users
   ON photos.user_id = users.id;`);
 };
 
