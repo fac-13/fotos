@@ -3,17 +3,19 @@
         <h1>Sign up</h1>
         <label class="form__label" for="username">Username:
             <input class="form__input" id="regUsername" type="text" name="username" placeholder="Enter your username here" required/>
-        <p id="regUsernameValidation" class="validation_error"></p>
+            <p id="regUsernameValidation" class="validation_error"></p>
         </label>
+        {{#if error}}
+        <p>Username already taken</p>{{/if}}
         <label class="form__label" for="password">Password:
             <input class="form__input" id="regPassword" type="password" name="password" placeholder="Enter your password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 minlength="8" maxlength="32" required/>
-        <p id="regPasswordValidation" class="validation_error"></p>
+            <p id="regPasswordValidation" class="validation_error"></p>
         </label>
         <label class="form__label" for="confirmPassword">Confirm password:
             <input class="form__input" id="confirmPassword" type="password" name="confirmPassword" placeholder="Confirm your password"
                 required/>
-         <p id="regPasswordMatch" class="validation_error"></p>
+            <p id="regPasswordMatch" class="validation_error"></p>
         </label>
         <p id="regEmptyValidation" class="validation_error"></p>
         <button id="register_button" name="register_button" type="submit">Submit!</button>
