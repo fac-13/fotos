@@ -1,3 +1,4 @@
+require('env2')('./config.env');
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
@@ -6,11 +7,17 @@ const helpers = require('./views/helpers/helpersIndex');
 const app = express();
 const cookieSess = require('cookie-session');
 const secret = process.env.SECRET;
-require('env2')('./config.env');
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+app.use(
+  cookieSess({
+    name: 'session',
+    keys: [secret]
+  })
+);
 
 app.engine(
   'hbs',

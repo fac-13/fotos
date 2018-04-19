@@ -1,8 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const cookieSess = require('cookie-session');
-require('env2')('./config.env');
-const secret = process.env.SECRET;
 
 const bodyParser = require('body-parser');
 
@@ -18,21 +15,6 @@ const addPhoto = require('./addPhoto');
 const registerUser = require('./registerUser');
 
 router.use(bodyParser.urlencoded({ extended: false }));
-
-router.use(
-  cookieSess({
-    name: 'session',
-    keys: [secret]
-  })
-);
-
-// router.use(
-//   cookieSess({
-//     name: 'errorcookie',
-//     maxAge: 10000,
-//     keys: [secret]
-//   })
-// );
 
 router.get('/', home.get);
 //loads register form page
