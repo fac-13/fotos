@@ -19,7 +19,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 
 router.use(cookieSess({
     name: 'session',
-    secret
+    keys: [secret]
 }));
 
 router.get('/', home.get);
