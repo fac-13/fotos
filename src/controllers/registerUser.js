@@ -8,16 +8,19 @@ exports.get = (req, res) => {
     console.log("password", password);  
     bcrypt.hash(password, 8, (err, hash) => {
         if (err) {console.log("Bcrypt error", err)}
-        else {
-        // const userDetails = []; 
-        // userDetails.push(username, password)
-        // console.log("userDetails", userDetails); 
-        // queries.addUser(userDetails); 
+        else { 
         queries
         .addUser(username, password)
-        .catch(err => console.log("addUser query error:", err))         
-        }
+        .then (username => res.redirect( `/profile/:username`))
+        .catch(err => 
+        { console.log("addUser query error:", err.message)
+          if (err.message.includes('duplicate key value'))
+          {
+           console.log("Registration err", err.message)
+           res.cookie('Registration error', 'Username already taken', {maxAge: 10000, secure: true})
+           res.send(); 
+          }  
+        })  
+    }  
     })
-    //after registration redirects the user to their profile
-    // res.redirect( `/profile/:${username}`)
 }; 
