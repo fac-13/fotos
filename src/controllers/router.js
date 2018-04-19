@@ -1,7 +1,4 @@
-//this is router file
-
 const express = require('express');
-const path = require('path');
 const router = express.Router();
 
 const home = require('./home');
@@ -13,25 +10,16 @@ const photo = require('./photo');
 const add = require('./add');
 const error = require('./error');
 
-// router.get('/', (req, res, next) =>
-//
-// );
-
-// GET METHOD
 router.get('/', home.get);
 router.get('/register', register.get);
 router.get('/login', login.get);
 router.get('/logout', logout.get);
 router.get('/add', add.get);
-
 router.get('/profile', profile.get);
 router.get('/photo/:imageID', photo.get);
 
-// POST METHOD
-
-// For getting the username and password
+router.post('/register', register.get);
 router.post('/login');
-// For getting the photo that has been posted
 router.post('/add');
 
 router.use(error.client);
