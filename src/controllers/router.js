@@ -1,5 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const cookieSess = require('cookie-session');
+require('env2')('./config.env');
+const secret = process.env.SECRET;
+
+const bodyParser = require('body-parser');
 
 const home = require('./home');
 const register = require('./register');
@@ -11,6 +16,15 @@ const add = require('./add');
 const error = require('./error');
 const addPhoto = require('./addPhoto');
 
+router.use(bodyParser.urlencoded({ extended: false }));
+
+router.use(
+  cookieSess({
+    name: 'session',
+    keys: [secret]
+  })
+);
+
 router.get('/', home.get);
 router.get('/register', register.get);
 router.get('/login', login.get);
@@ -20,8 +34,8 @@ router.get('/profile', profile.get);
 router.get('/photo/:photoId', photo.get);
 
 router.post('/register', register.get);
-router.post('/login');
 router.post('/add', addPhoto.get);
+router.post('/login', login.post);
 
 router.use(error.client);
 router.use(error.server);

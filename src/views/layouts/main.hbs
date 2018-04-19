@@ -11,8 +11,8 @@
     </main>
 
     {{> footer}}
-
-    <script src="/index.js"></script>
+    <script src="/index.js"></script> {{#if activePage.register}}
+    <script src="/passwordValidation.js"></script>{{/if}}
 
 </body>
 
