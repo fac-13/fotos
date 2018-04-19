@@ -13,7 +13,6 @@ const getPhoto = photoId => {
 };
 
 const addUser = (username, hash) => {
-  console.log('username', username);
   return db.query(`INSERT INTO users (username, password) VALUES ($1, $2)`, [
     username,
     hash
@@ -21,7 +20,6 @@ const addUser = (username, hash) => {
 };
 
 const postPhoto = (title, description, url) => {
-  console.log('reached postPhoto query');
   return db.query(
     `INSERT INTO photos (title, description, image_url) VALUES ($1, $2, $3)`,
     [title, description, url]
@@ -31,5 +29,6 @@ const postPhoto = (title, description, url) => {
 module.exports = {
   getAll,
   getPhoto,
+  addUser,
   postPhoto
 };
