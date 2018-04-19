@@ -44,6 +44,7 @@ router.get('/profile/:username', profile.get);
 router.get('/photo/:photoId', photo.get);
 router.post('/add', addPhoto.get);
 router.post('/register', registerUser.get);
+router.post('/register', registerUser.post);
 router.post('/login', login.post);
 
 router.use(error.client);
