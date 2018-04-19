@@ -11,7 +11,14 @@ const getPhoto = photoId => {
   INNER JOIN users
   ON photos.user_id = users.id WHERE photos.id = ${photoId};`);
 };
+
+const addUser = (username, hash) => {
+  console.log("username", username); 
+  return db.query(`INSERT INTO users (username, password) VALUES ($1, $2)`, [username, hash]); 
+}; 
+
 module.exports = {
   getAll,
-  getPhoto
+  getPhoto, 
+  addUser
 };
