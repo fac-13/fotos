@@ -30,7 +30,7 @@ router.use(
   cookieSess({
     name: 'errorCookie',
     maxAge: 10000,
-    secret
+    keys: [secret]
   })
 );
 
