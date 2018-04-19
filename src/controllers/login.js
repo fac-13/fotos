@@ -7,25 +7,27 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res) => {
-    const username = req.body.username; 
-    const password = req.body.password; 
+    const username = req.body.username;
+    const password = req.body.password;
     queries
-    .checkUserDetails(username)
-    .then(data => bcrypt.compare(password, data[0].password))
-    .then(result => {
-        if (result === true){
-        req.session.loggedIn = true;
-        req.session.username = req.body.username;
-        res.redirect('/');
-        }
-        else {
-        console.log("Username and password not matching"); 
-        res.redirect('/'); 
-        }
-    })
-    .catch((err) => {
-    console.log("Login error:", err)
-    next(err)
-    })
+        .checkUserDetails(username)
+        .then(data => {
+            return bcrypt.compare(password, data[0].password);
+        })
+        .then(result => {
+            if (result === true) {
+                req.session.loggedIn = true;
+                req.session.username = req.body.username;
+                res.redirect('/');
+            }
+            else {
+                console.log("Username and password not matching");
+                res.render('login', { activePage: { login: true }, notmatch: true });
+            }
+        })
+        .catch((err) => {
+            console.log("Login error:", err)
+            next(err)
+        })
 }
 
