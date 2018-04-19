@@ -9,6 +9,7 @@ const profile = require('./profile');
 const photo = require('./photo');
 const add = require('./add');
 const error = require('./error');
+const addPhoto = require('./addPhoto');
 
 router.get('/', home.get);
 router.get('/register', register.get);
@@ -20,7 +21,7 @@ router.get('/photo/:photoId', photo.get);
 
 router.post('/register', register.get);
 router.post('/login');
-router.post('/add');
+router.post('/add', addPhoto.get);
 
 router.use(error.client);
 router.use(error.server);
