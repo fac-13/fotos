@@ -15,7 +15,7 @@ tape('home route returns a status code of 200', t => {
   request(app)
     .get('/')
     .expect(200)
-    .expect('Content-Type', /json/)
+    .expect('Content-Type', /html/)
     .end((err, res) => {
       console.log(res.body);
       t.error(err);
