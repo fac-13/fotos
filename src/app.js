@@ -3,7 +3,6 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const controllers = require('./controllers/router');
 const helpers = require('./views/helpers/helpersIndex');
-
 const app = express();
 
 app.set('port', process.env.PORT || 3000);

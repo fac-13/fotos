@@ -9,8 +9,8 @@ var regConfirmPassword = document.getElementById("confirmPassword");
 var errorMessage = document.getElementsByClassName('validation-error');
 
 //SIGN UP FORM 
-registerButton.addEventListener('click', function(e){
-  e.preventDefault();   
+registerButton.addEventListener('click', function(e){ 
+ 
     // clears the error message paragraphs
     Array.from(errorMessage).forEach((message) => {
         message.textContent = '';
@@ -28,4 +28,5 @@ registerButton.addEventListener('click', function(e){
   if (regPassword.value !== regConfirmPassword.value) {
     regPasswordMatch.textContent = 'Your password and confirmation password do not match.';
   }
+
 })
