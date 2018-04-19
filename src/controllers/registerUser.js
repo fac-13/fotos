@@ -14,7 +14,7 @@ exports.post = (req, res) => {
     } else {
       queries
         .addUser(username, password)
-        .then(username => res.redirect(`/profile/:${username}`))
+        .then(username => res.redirect(`/profile/${username}`))
         .catch(err => {
           if (err.message.includes('duplicate key value')) {
             res.render('register', {
