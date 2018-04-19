@@ -14,6 +14,7 @@ const profile = require('./profile');
 const photo = require('./photo');
 const add = require('./add');
 const error = require('./error');
+const registerUser = require('./registerUser'); 
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
@@ -22,15 +23,23 @@ router.use(cookieSess({
     keys: [secret]
 }));
 
+router.use(cookieSess({
+    name: 'errorCookie',
+    maxAge: 10000,
+    secret
+}));
+
+
 router.get('/', home.get);
+//loads register form page
 router.get('/register', register.get);
 router.get('/login', login.get);
 router.get('/logout', logout.get);
 router.get('/add', add.get);
-router.get('/profile', profile.get);
+router.get('/profile/:username', profile.get);
 router.get('/photo/:photoId', photo.get);
 
-router.post('/register', register.get);
+router.post('/register', registerUser.get);
 router.post('/login', login.post);
 router.post('/add');
 
