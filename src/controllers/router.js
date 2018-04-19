@@ -14,7 +14,7 @@ const profile = require('./profile');
 const photo = require('./photo');
 const add = require('./add');
 const error = require('./error');
-const registerUser = require('./registerUser'); 
+const registerUser = require('./registerUser');
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
@@ -39,7 +39,7 @@ router.get('/add', add.get);
 router.get('/profile/:username', profile.get);
 router.get('/photo/:photoId', photo.get);
 
-router.post('/register', registerUser.get);
+router.post('/register', registerUser.post);
 router.post('/login', login.post);
 router.post('/add');
 

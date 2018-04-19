@@ -10,7 +10,6 @@ var errorMessage = document.getElementsByClassName('validation-error');
 
 //SIGN UP FORM 
 registerButton.addEventListener('click', function (e) {
-    e.preventDefault();
     // clears the error message paragraphs
     Array.from(errorMessage).forEach((message) => {
         message.textContent = '';
