@@ -23,6 +23,9 @@ exports.post = (req, res) => {
         res.redirect('/'); 
         }
     })
-    .catch((err) => console.log("Login error:", err))
+    .catch((err) => {
+    console.log("Login error:", err)
+    next(err)
+    })
 }
 
