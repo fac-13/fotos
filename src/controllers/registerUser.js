@@ -9,7 +9,7 @@ exports.post = (req, res) => {
         if (err) { console.log("Bcrypt error", err) }
         else {
             queries
-                .addUser(username, password)
+                .addUser(username, hash)
                 .then(username => res.redirect(`/profile/:username`))
                 .catch(err => {
                     console.log("addUser query error:", err.message)

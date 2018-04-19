@@ -23,12 +23,11 @@ router.use(cookieSess({
     keys: [secret]
 }));
 
-router.use(cookieSess({
-    name: 'errorCookie',
-    maxAge: 10000,
-    secret
-}));
-
+// router.use(cookieSess({
+//     name: 'errorCookie',
+//     maxAge: 10000,
+//     secret
+// }));
 
 router.get('/', home.get);
 //loads register form page

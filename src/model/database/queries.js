@@ -17,8 +17,14 @@ const addUser = (username, hash) => {
   return db.query(`INSERT INTO users (username, password) VALUES ($1, $2)`, [username, hash]); 
 }; 
 
+const checkUserDetails = (username) => {
+  console.log("Checkuserdetails reached"); 
+  return db.query(`SELECT password FROM users WHERE username = $1`, [username]); 
+}; 
+
 module.exports = {
   getAll,
   getPhoto, 
-  addUser
+  addUser, 
+  checkUserDetails
 };
