@@ -16,11 +16,6 @@ const registerUser = require('./registerUser');
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-router.use(cookieSess({
-    name: 'session',
-    keys: [secret]
-}));
-
 router.get('/', home.get);
 //loads register form page
 router.get('/register', register.get);
