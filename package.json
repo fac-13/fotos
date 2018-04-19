@@ -6,7 +6,7 @@
   "scripts": {
     "test": "NODE_ENV=test node test/test.js | tap-spec",
     "start:watch": "nodemon -q src/serverIndex.js",
-    "build": "node src/model/databse/db_build.js",
+    "build": "node src/model/database/db_build.js",
     "start": "node src/serverIndex.js",
     "pretest": "NODE_ENV=test npm run build"
   },
