@@ -9,16 +9,19 @@ const profile = require('./profile');
 const photo = require('./photo');
 const add = require('./add');
 const error = require('./error');
+const registerUser = require('./registerUser'); 
 
 router.get('/', home.get);
+//loads register form page
 router.get('/register', register.get);
 router.get('/login', login.get);
 router.get('/logout', logout.get);
 router.get('/add', add.get);
-router.get('/profile', profile.get);
+router.get('/profile/:username', profile.get);
 router.get('/photo/:photoId', photo.get);
 
-router.post('/register', register.get);
+//get user data from post
+router.post('/register', registerUser.get);
 router.post('/login');
 router.post('/add');
 
