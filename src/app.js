@@ -1,3 +1,7 @@
+const cookieSess = require('cookie-session');
+require('env2')('./config.env');
+const secret = process.env.SECRET;
+
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
@@ -8,6 +12,13 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+app.use(
+  cookieSess({
+    name: 'session',
+    keys: [secret]
+  })
+);
 
 app.engine(
   'hbs',
