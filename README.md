@@ -29,4 +29,4 @@
   SECRET = TAKA
   ```
 5. Exit postgres and the run `npm run build` to build the database. (or Build the database by connecting to postgres and typing `\i` \+ correct path + `/fotos/src/model/database/db_build.sql`)
-6. You should now be able to run tests (using `npm test`) and also run `npm start` (or `npm run dev`) and access the site at localhost:4000. 
+6. You should now be able to run tests (using `npm test`) and also run `npm run start:watch` and access the site at localhost:3000. 
