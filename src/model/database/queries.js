@@ -26,12 +26,14 @@ const getUserId = (username) => {
   );
 };
 
-// const userPhotos = (username) => {
-//   return db.query(
-//     `SELECT id FROM users WHERE username = $1`,
-//     [username]
-//   );
-// };
+const userPhotos = (username) => {
+  return db.query(
+    `SELECT photos.title, photos.date, photos.description, photos.image_url FROM photos
+    LEFT JOIN users
+    ON photos.user_id = users.id WHERE users.username = $1;`,
+    [username]
+  );
+};
 
 const postPhoto = (user_id, title, description, url) => {
   return db.query(
@@ -51,5 +53,6 @@ module.exports = {
   addUser,
   getUserId,
   postPhoto,
-  checkUserDetails
+  checkUserDetails,
+  userPhotos
 };

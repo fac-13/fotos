@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const controllers = require('./controllers/router');
-const helpers = require('./views/helpers/helpersIndex');
+// const helpers = require('./views/helpers/helpersIndex');
 const app = express();
 const cookieSess = require('cookie-session');
 const secret = process.env.SECRET;
@@ -26,7 +26,7 @@ app.engine(
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     partialsDir: path.join(__dirname, 'views', 'partials'),
     defaultLayout: 'main',
-    helpers
+    // helpers
   })
 );
 app.use(
