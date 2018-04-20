@@ -7,7 +7,7 @@
             </li>
             {{#if loggedIn}}
             <li class="navbar__item">
-                <a class="navbar__link {{#if activePage.profile}}navbar__link--active{{/if}}" href="/profile">{{username}}</a>
+                <a class="navbar__link {{#if activePage.profile}}navbar__link--active{{/if}}" href="/profile/{{username}}">{{username}}</a>
             </li>
             <li class="navbar__item">
                 <a class="navbar__link {{#if activePage.add}}navbar__link--active{{/if}}" href="/add">Add Photo</a>

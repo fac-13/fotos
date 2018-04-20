@@ -6,7 +6,9 @@
 </a>
 <p>Description: {{this.description}}</p>
 
-<p>Posted by: {{this.username}}</p>
+<p>Posted by:
+    <a href="/profile/{{this.username}}" alt={{this.username}}>{{this.username}}</a>
+</p>
 <p>Date posted: {{this.date}}</p>
 </section>
 {{/each}}

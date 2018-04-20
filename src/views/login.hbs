@@ -2,8 +2,6 @@
     <header class="login__header">
         <h2 class="login__title">Login</h2>
     </header>
-    {{#if notmatch}}
-    <p>Your username and password don't match! Try again</p>{{/if}}
     <form class="js-lgn-form lgn__form" action="/login" method="POST" novalidate>
         <label class="lgn__label" for="lgn-username">Username:</label>
         <input class "js-lgn-username lgn__input lgn__username" id="lgn-username" type="text" name="username" required />
@@ -11,6 +9,8 @@
         <label class="form__label" for="lgn-password">Password:</label>
         <input class "js-lgn-password lgn__input lgn__password" id="lgn-password" type="password" name="password" required />
         <p class="js-lgn-password-err lgn__password-err" aria-live="polite"></p>
+        {{#if notmatch}}
+        <p>Your details are incorrect! Try again</p>{{/if}}
         <button id="login__button">Login</button>
     </form>
 </section>
