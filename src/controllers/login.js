@@ -6,7 +6,7 @@ exports.get = (req, res) => {
     res.render('login', { activePage: { login: true } });
 };
 
-exports.post = (req, res) => {
+exports.post = (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
     queries
@@ -26,8 +26,8 @@ exports.post = (req, res) => {
             }
         })
         .catch((err) => {
-            console.log("Login error:", err)
-            next(err)
+            console.log("Login error:", err);
+            next(err);
         })
 }
 

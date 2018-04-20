@@ -2,7 +2,7 @@ const queries = require('./../model/database/queries');
 const bcrypt = require('bcrypt');
 const register = require('./register');
 
-exports.post = (req, res) => {
+exports.post = (req, res, next) => {
 
     const username = req.body.username;
     const password = req.body.password;
