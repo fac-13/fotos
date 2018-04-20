@@ -12,7 +12,11 @@ exports.post = (req, res, next) => {
     queries
         .checkUserDetails(username)
         .then(data => {
-            return bcrypt.compare(password, data[0].password);
+            if (data.length > 0) {
+                return bcrypt.compare(password, data[0].password);
+            } else {
+                return false;
+            }
         })
         .then(result => {
             if (result === true) {

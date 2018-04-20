@@ -11,10 +11,9 @@
     </main>
 
     {{> footer}}
-    <script src="/index.js"></script> 
-    {{#if activePage.register}}
-    <script src="/passwordValidation.js"></script>
-    {{/if}}
+    <script src="/index.js"></script> {{#if activePage.register}}
+    <script src="/registerValidation.js"></script> {{/if}} {{#if activePage.login}}
+    <script src="/loginValidation.js"></script> {{/if}}
 
 </body>
 
