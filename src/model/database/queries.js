@@ -26,10 +26,19 @@ const getUserId = (username) => {
   );
 };
 
-const postPhoto = (id, title, description, url) => {
+const userPhotos = (username) => {
   return db.query(
-    `INSERT INTO photos (id, title, description, image_url) VALUES ($1, $2, $3, $4)`,
-    [id, title, description, url]
+    `SELECT photos.title, photos.date, photos.description, photos.image_url FROM photos
+    LEFT JOIN users
+    ON photos.user_id = users.id WHERE users.username = $1;`,
+    [username]
+  );
+};
+
+const postPhoto = (user_id, title, description, url) => {
+  return db.query(
+    `INSERT INTO photos (user_id, title, description, image_url) VALUES ($1, $2, $3, $4)`,
+    [user_id, title, description, url]
   );
 };
 
@@ -44,5 +53,6 @@ module.exports = {
   addUser,
   getUserId,
   postPhoto,
-  checkUserDetails
+  checkUserDetails,
+  userPhotos
 };

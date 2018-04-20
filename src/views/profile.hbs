@@ -1,3 +1,12 @@
 <section>
-    <h1>Profile</h1>
+    <h1>{{username}}</h1>
+    <p>All photos you've uploaded!</p>
+    {{#each data}}
+    <h1>{{this.title}}</h1>
+    <a href='/photo/{{this.id}}'>
+        <img src={{this.image_url}} alt={{this.title}} />
+    </a>
+    <p>Description: {{this.description}}</p>
+    <p>Date posted: {{this.date}}</p>
+    {{/each}}
 </section>
