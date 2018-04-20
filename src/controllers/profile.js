@@ -8,7 +8,7 @@ exports.get = (req, res, next) => {
             .then(data => {
                 if (data.length > 0) {
                     if (username) {
-                        res.render('profile', { activePage: { profile: true }, loggedIn: true, username, data });
+                        res.render('profile', { activePage: { profile: true }, loggedIn: true, profileusername: req.params.username, username, data });
                     } else {
                         res.render('profile', { activePage: { profile: true }, loggedIn: false, data });
                     }
