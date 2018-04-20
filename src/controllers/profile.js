@@ -7,7 +7,11 @@ exports.get = (req, res, next) => {
             .userPhotos(req.params.username)
             .then(data => {
                 if (data.length > 0) {
-                    res.render('profile', { activePage: { profile: true }, loggedIn: true, username: req.params.username, data });
+                    if (username) {
+                        res.render('profile', { activePage: { profile: true }, loggedIn: true, username, data });
+                    } else {
+                        res.render('profile', { activePage: { profile: true }, loggedIn: false, data });
+                    }
                 } else {
                     next();
                 }
@@ -20,7 +24,7 @@ exports.get = (req, res, next) => {
         queries
             .userPhotos(username)
             .then(data => {
-                res.render('profile', { activePage: { profile: true }, loggedIn: true, username: username, data });
+                res.render('profile', { activePage: { profile: true }, loggedIn: true, username, data });
             })
             .catch((err) => {
                 console.log("query error:", err)
