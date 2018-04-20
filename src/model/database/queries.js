@@ -19,22 +19,30 @@ const addUser = (username, hash) => {
   ]);
 };
 
-const postPhoto = (username, title, description, url) => {
+const getUserId = (username) => {
   return db.query(
-    `INSERT INTO photos (username, title, description, image_url) VALUES ($1, $2, $3, $4)`,
-    [title, description, url]
+    `SELECT id FROM users WHERE username = $1`,
+    [username]
+  );
+};
+
+const postPhoto = (id, title, description, url) => {
+  return db.query(
+    `INSERT INTO photos (id, title, description, image_url) VALUES ($1, $2, $3, $4)`,
+    [id, title, description, url]
   );
 };
 
 const checkUserDetails = (username) => {
-  console.log("Checkuserdetails reached"); 
-  return db.query(`SELECT password FROM users WHERE username = $1`, [username]); 
-}; 
+  console.log("Checkuserdetails reached");
+  return db.query(`SELECT password FROM users WHERE username = $1`, [username]);
+};
 
 module.exports = {
   getAll,
   getPhoto,
   addUser,
+  getUserId,
   postPhoto,
   checkUserDetails
 };
