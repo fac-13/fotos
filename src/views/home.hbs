@@ -1,4 +1,5 @@
  {{#each data}}
+ <section class="main__photocard">
 <h1>{{this.title}}</h1>
 <a href='/photo/{{this.id}}'>
     <img src={{this.image_url}} alt={{this.title}} />
@@ -9,4 +10,5 @@
     <a href="/profile/{{this.username}}" alt={{this.username}}>{{this.username}}</a>
 </p>
 <p>Date posted: {{this.date}}</p>
+</section>
 {{/each}}
