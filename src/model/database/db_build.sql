@@ -15,7 +15,7 @@ CREATE TABLE photos(
   user_id INTEGER REFERENCES users(id),
   date TIMESTAMPTZ NOT NULL DEFAULT now(),
   description VARCHAR(1000) NOT NULL,
-  image_url VARCHAR(3000) NOT NULL
+  image_url VARCHAR(8000) NOT NULL
 );
 
 INSERT INTO users (username, password) VALUES

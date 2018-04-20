@@ -18,7 +18,7 @@ exports.post = (req, res) => {
             if (result === true) {
                 req.session.loggedIn = true;
                 req.session.username = req.body.username;
-                res.redirect('/');
+                res.redirect(`/profile/${req.session.username}`);
             }
             else {
                 console.log("Username and password not matching");

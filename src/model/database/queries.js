@@ -26,10 +26,17 @@ const getUserId = (username) => {
   );
 };
 
-const postPhoto = (id, title, description, url) => {
+// const userPhotos = (username) => {
+//   return db.query(
+//     `SELECT id FROM users WHERE username = $1`,
+//     [username]
+//   );
+// };
+
+const postPhoto = (user_id, title, description, url) => {
   return db.query(
-    `INSERT INTO photos (id, title, description, image_url) VALUES ($1, $2, $3, $4)`,
-    [id, title, description, url]
+    `INSERT INTO photos (user_id, title, description, image_url) VALUES ($1, $2, $3, $4)`,
+    [user_id, title, description, url]
   );
 };
 
